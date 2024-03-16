@@ -44,7 +44,7 @@ def analyse():
         agents = agent(df)
         response = agents.invoke(query)
 
-        return jsonify({"answer": f"{response["output"]}"})
+        return jsonify({"answer": f"{response['output']}"})
     except:
         response = {"error": "File Not Found"}
 
