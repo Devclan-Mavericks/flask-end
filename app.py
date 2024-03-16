@@ -45,8 +45,8 @@ def analyse():
         response = agents.invoke(query)
         response = response["output"]
         return jsonify({"answer": response})
-    except Exception as e:
-        response = {"error": e}
+    except:
+        response = {"error": "Something went wrong"}
         return response
 
 
