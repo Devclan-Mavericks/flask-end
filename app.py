@@ -31,11 +31,12 @@ def upload_file():
     return response
 
 
-@app.route("/query")
-def analyse(filename):
+@app.route("/query", methods=["POST"])
+def analyse():
     query = request.form["query"]
+    filename = request.form["filename"]
 
-    file = "/uploads/" + filename
+    file = "./uploads/" + filename
     df = pd.read_csv(file)
 
     """create an agent"""
