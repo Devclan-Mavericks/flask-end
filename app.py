@@ -36,6 +36,7 @@ def analyse():
     query = request.form["query"]
     filename = request.form["filename"]
 
+    
     file = "./uploads/" + filename
     df = pd.read_csv(file)
 
@@ -43,7 +44,7 @@ def analyse():
     agents = agent(df)
     response = agents.invoke(query)
 
-    return response["output"]
+    return response
 
 
 if __name__ == "__main__":
