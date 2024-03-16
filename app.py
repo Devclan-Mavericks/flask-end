@@ -18,11 +18,11 @@ def index():
 @app.route("/upload", methods=["POST"])
 def upload_file():
     file = request.files["file"]
-    
-    """Save the csv file """
-    filename = file.filename
 
-    file.save("./uploads/", filename)
+    """Save the csv file """
+    save_path = f"./uploads/{file.filename}"
+    with open(save_path, "wb+") as destination:
+        destination.write(file.read())
 
     """return a success response status code"""
     response = jsonify({"filename": f"{file.name}"})
@@ -44,8 +44,6 @@ def analyse(filename):
     response.status_code = 200
 
     return response
-
-
 
 
 if __name__ == "__main__":
