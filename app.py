@@ -37,9 +37,10 @@ def analyse():
     filename = request.form["filename"]
 
     try:
+        print(filename)
         file = "./uploads/" + filename
         df = pd.read_csv(file)
-
+        
         """create an agent"""
         agents = agent(df)
         response = agents.invoke(query)
