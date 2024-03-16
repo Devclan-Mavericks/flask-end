@@ -40,11 +40,10 @@ def analyse():
     df = pd.read_csv(file)
 
     """create an agent"""
-    agent = agent(df)
-    response = agent.invoke(query)
-    response.status_code = 200
+    agents = agent(df)
+    response = agents.invoke(query)
 
-    return response
+    return response["output"]
 
 
 if __name__ == "__main__":
