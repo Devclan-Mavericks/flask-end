@@ -40,9 +40,10 @@ def analyse():
         print(filename)
         file = "./uploads/" + filename
         df = pd.read_csv(file)
-        
+        print(df.head(3))
         """create an agent"""
         agents = agent(df)
+        print("agent created")
         response = agents.invoke(query)
         response = response["output"]
         return jsonify({"answer": response})
