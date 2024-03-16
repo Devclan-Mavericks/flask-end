@@ -25,7 +25,7 @@ def upload_file():
         destination.write(file.read())
 
     """return a success response status code"""
-    response = jsonify({"filename": f"{file.name}"})
+    response = jsonify({"filename": f"{file.filename}"})
     response.status_code = 200
 
     return response
