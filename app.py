@@ -36,15 +36,17 @@ def analyse():
     query = request.form["query"]
     filename = request.form["filename"]
 
-    
-    file = "./uploads/" + filename
-    df = pd.read_csv(file)
+    try:
+        file = "./uploads/" + filename
+        df = pd.read_csv(file)
 
-    """create an agent"""
-    agents = agent(df)
-    response = agents.invoke(query)
+        """create an agent"""
+        agents = agent(df)
+        response = agents.invoke(query)
 
-    return response
+        return jsonify({"answer": f"{response["output"]}"})
+    except:
+        response = {"error": "File Not Found"}
 
 
 if __name__ == "__main__":
