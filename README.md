@@ -19,7 +19,7 @@ curl -X POST -F "file=@/path/to/your/file.csv" http://localhost:5000/upload
 - The response will be a JSON object containing the status of the upload and the name of the file uploaded.
 
 ###  - Performing Queries:
-- Send a `GET` request to `/query` endpoint with a JSON object containing the query parameters.
+- Send a `GET` request to `/query` endpoint with a JSON object containing the query parameters
 Example using cURL:
 ```bash
 curl -X GET -d "query=YourQueryHere" http://localhost:5000/query
