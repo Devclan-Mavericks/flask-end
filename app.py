@@ -18,10 +18,11 @@ def index():
 @app.route("/upload", methods=["POST"])
 def upload_file():
     file = request.files["file"]
-
+    
     """Save the csv file """
     filename = file.filename
-    file.save("./uploads", filename)
+
+    file.save("./uploads/", filename)
 
     """return a success response status code"""
     response = jsonify({"filename": f"{file.name}"})
